@@ -1,0 +1,54 @@
+name: Banjo Tooie (North America)
+sha1: af1a89e12b638b8d82cc4c085c8e01d4cba03fb3
+options:
+  basename: banjotooie
+  target_path: baserom.z64
+  base_path: .
+  compiler: IDO
+  find_file_boundaries: True
+  header_encoding: ASCII
+  platform: n64
+  # undefined_funcs_auto: True
+  # undefined_funcs_auto_path: undefined_funcs_auto.txt
+  # undefined_syms_auto: True
+  # undefined_syms_auto_path: undefined_syms_auto.txt
+  # symbol_addrs_path: symbol_addrs.txt
+  # asm_path: asm
+  # src_path: src
+  # build_path: build
+  # extensions_path: tools/splat_ext
+  # mips_abi_float_regs: o32
+  # section_order: [".text", ".data", ".rodata", ".bss"]
+  # auto_all_sections: [".data", ".rodata", ".bss"]
+  # libultra_symbols: True
+  # hardware_regs: True
+segments:
+  - name: header
+    type: header
+    start: 0x0
+  - name: boot
+    type: bin
+    start: 0x40
+  - name: bt_boot
+    type: code
+    start: 0x1000
+    vram: 0x80000400
+    subsegments:
+      - [0x1000, bin]
+  - name: assets # possibly
+    type: bin
+    start: 0x00004E40
+    subsegments:
+      - [0x4E40, bin, assets]
+  - name: core1
+    type: code
+    start: 0x1E29B60
+    subalign: 0x04
+    subsegments:
+      - [0x1E29B60, bin, core1_text.rzip]
+      - [0x1E3F718, bin, core1_data.rzip]
+  - start: 0x1E42550
+    type: bin
+  - [0x2000000]
+
+

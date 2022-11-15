@@ -1,0 +1,102 @@
+#include "common.h"
+
+#define FRAMEBUFFER_ALIGNMENT (0x40)
+
+#ifdef MATCHING
+void* func_80014E10(s32 index, s32 size) {
+    u32 ufb;
+    void* fb = malloc(size + FRAMEBUFFER_ALIGNMENT, 1); // malloc framebuffer
+    D_80078F70[index] = fb;
+
+    ufb = fb;
+    while (ufb & (FRAMEBUFFER_ALIGNMENT - 1)) {
+        ufb = ufb + 1;
+    }
+    return ufb;
+}
+#else
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014E10.s")
+#endif
+
+#ifndef PERFORMANCE_CHANGES
+void func_80014E6C(void) {
+    D_80078F80 = func_80014E10(0, 0x21D80);
+    D_80078F84 = func_80014E10(1, 0x21D80);
+    D_80078F88 = func_80014E10(2, 0x10EC0);
+}
+#else
+void func_80014E6C(void) {
+    D_80078F80 = 0x80700000;
+    D_80078F70[0] = 0x80700000;
+    D_80078F84 = 0x80600000;
+    D_80078F70[1] = 0x80600000;
+    D_80078F88 = 0x80500000;
+    D_80078F70[2] = 0x80500000;
+}
+#endif
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014EC8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014ED4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014F00.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014F38.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014F4C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014F58.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014F64.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80014FE8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015178.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015184.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015190.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_800151BC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015410.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015430.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_8001546C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_8001559C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_800155BC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015670.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_8001575C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015768.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015778.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_800157E0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_800157EC.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015828.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015860.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015878.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_800158E4.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_8001592C.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015A70.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015B34.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015CC0.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015CE8.s")
+
+#pragma GLOBAL_ASM("asm/nonmatchings/core1/2DE0/func_80015D14.s")

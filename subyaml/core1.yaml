@@ -1,0 +1,19 @@
+options:
+  basename: core1
+  target_path: assets/core1_text.rbin
+  base_path: ../
+  find_file_boundaries: yes
+  compiler: "IDO"
+  platform: n64
+segments:
+  - name: core1_text
+    dir: core1
+    type: code
+    start: 0x00
+    vram: 0x80012030
+    subsegments:
+      - [0x00, bin]
+      #- [0x2DE0, c, core1]
+      - [0x2DE0, hasm, ../../src/core1/core1]
+      - [0x3D30, bin]
+  - [0x0002A9A0]

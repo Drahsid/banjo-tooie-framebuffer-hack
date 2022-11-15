@@ -1,0 +1,3 @@
+malloc = 0x8001ACEC; // type:func
+osMemSize = 0x80000318; // type:data size:0x04
+
